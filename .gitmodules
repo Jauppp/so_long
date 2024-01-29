@@ -1,0 +1,6 @@
+[submodule "build/Improved-LIBFT"]
+	path = build/Improved-LIBFT
+	url = https://github.com/Jauppp/Improved-LIBFT
+[submodule "build/libft"]
+	path = build/libft
+	url = https://github.com/Jauppp/Improved-LIBFT
