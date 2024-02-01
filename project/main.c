@@ -6,7 +6,7 @@
 /*   By: cdomet-d <cdomet-d@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 14:51:00 by cdomet-d          #+#    #+#             */
-/*   Updated: 2024/01/31 17:45:18 by cdomet-d         ###   ########lyon.fr   */
+/*   Updated: 2024/02/01 17:58:16 by cdomet-d         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,26 @@ int	main(int argc, char *argv[])
 	else
 		init_map_fd(map, argv[1]);
 	is_map_valid(map);
+	// coor = find_sprite_coordinates(map, 'E', coor);
+	// printf("Exit coordinates = i - %ld || %ld - j\n", coor.i, coor.j);
+	// coor.i = 0;
+	// coor.j = 0;
+	// coor = find_sprite_coordinates(map, 'C', coor);
+	// is_item_trapped(map, coor.i, coor.j);
+	print_map(map);
+	// coor.i = 0;
+	// coor.j = 0;
 	coor = find_sprite_coordinates(map, 'P', coor);
-	printf("%d\n", is_sprite_trapped(map, coor, &count));
+	is_player_trapped(map, coor.i, coor.j);
+	// printf("\n%d\n", is_sprite_trapped(map, &coor, coor));
 	print_map(map);
 	free_and_exit(map, errno);
 }
+
+		// printf("j + 1\n");
+		// printf("coor || i - %ld || %ld - coor->j\n", coor->i, coor->j);
+		// printf("prev || i - %ld || %ld - j\n", prev_step.i, prev_step.j);
+
+		// printf("j - 1\n");
+		// printf("coor || i - %ld || %ld - coor->j\n", coor->i, coor->j);
+		// printf("prev || i - %ld || %ld - j\n", prev_step.i, prev_step.j);

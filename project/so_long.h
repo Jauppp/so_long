@@ -6,7 +6,7 @@
 /*   By: cdomet-d <cdomet-d@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 14:02:55 by cdomet-d          #+#    #+#             */
-/*   Updated: 2024/01/31 17:44:20 by cdomet-d         ###   ########lyon.fr   */
+/*   Updated: 2024/02/01 17:57:11 by cdomet-d         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ void	map_has_collectible(char **map);
 int		check_row_is_wall(char *map);
 size_t	count_collectibles(char **map);
 t_coor	find_sprite_coordinates(char **map, char sprite, t_coor coordinates);
-int		is_sprite_trapped(char **map, t_coor coor, size_t *count);
+void	is_item_trapped(char **map, size_t i, size_t j);
+void	is_player_trapped(char **map, size_t i, size_t j);
 
 #endif
