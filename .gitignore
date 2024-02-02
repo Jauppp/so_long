@@ -1,3 +1,4 @@
 *.txt
 .dir_build/
 .so_long
+project/map_tester/
