@@ -6,7 +6,7 @@
 /*   By: cdomet-d <cdomet-d@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 14:06:08 by cdomet-d          #+#    #+#             */
-/*   Updated: 2024/02/02 17:29:16 by cdomet-d         ###   ########lyon.fr   */
+/*   Updated: 2024/02/05 13:43:07 by cdomet-d         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,10 +101,9 @@ void	is_map_valid(char **map)
 		mem_err(map, 0, errno);
 	coor = find_sprite_coordinates(map_cpy, 'P', coor);
 	is_sprite_trapped(map_cpy, coor.i, coor.j);
-	print_map(map_cpy);
 	if (map_has_one_exit(map_cpy))
-		parse_err(map, map_cpy, "Error\nPlayer cannot reach the exit :(");
+		parse_err(map, map_cpy, "Error\nPlayer can't reach the exit :(");
 	if (map_has_collectible(map_cpy))
-		parse_err(map, map_cpy, "Error\nPlayer cannot reach all collectibles :(");
+		parse_err(map, map_cpy, "Error\nPlayer can't reach all collectibles :(");
 	free_double_tab(map_cpy);
 }

@@ -6,7 +6,7 @@
 /*   By: cdomet-d <cdomet-d@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 14:02:55 by cdomet-d          #+#    #+#             */
-/*   Updated: 2024/02/02 16:47:53 by cdomet-d         ###   ########lyon.fr   */
+/*   Updated: 2024/02/05 13:09:41 by cdomet-d         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,22 +40,27 @@ void	init_map_stdin(char **map);
 void	is_map_valid(char **map);
 
 /* Parsing */
-int		map_has_one_exit(char **map);
 int		map_has_collectible(char **map);
+int		map_has_one_exit(char **map);
 void	map_has_one_start_position(char **map);
 void	map_is_closed(char **map);
 void	map_is_rectangular(char **map);
 
 /* Parsing utils*/
 int		check_row_is_wall(char *map);
+int		map_extension_is_valid(char *str);
 size_t	count_collectibles(char **map);
 t_coor	find_sprite_coordinates(char **map, char sprite, t_coor coordinates);
 void	is_sprite_trapped(char **map, size_t i, size_t j);
+
 
 /* Error handling */
 void	free_and_exit(char **map, int error_code);
 void	free_double_tab(char **double_tab);
 void	mem_err(char **map, size_t row, int error_code);
 void	parse_err(char **map, char **map_cpy, char *error_message);
+
+/* Window handling */
+void	open_window(char **map);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: cdomet-d <cdomet-d@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 10:48:39 by cdomet-d          #+#    #+#             */
-/*   Updated: 2024/02/02 17:28:25 by cdomet-d         ###   ########lyon.fr   */
+/*   Updated: 2024/02/05 11:29:31 by cdomet-d         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@ void	map_is_rectangular(char **map)
 	
 	i = 0;
 	matlen = ft_matlen(map);
-	if (matlen < 1)
-		parse_err(map, NULL, "2. Error\nMap is not rectangular");
+	if (matlen < 3)
+		parse_err(map, NULL, "Error\nMap is not rectangular");
 	len = ft_strlen(map[i]);
-	while (i < matlen - 1)
+	while (i < matlen)
 	{
 		if (ft_strlen(map[i]) != len)
-			parse_err(map, NULL, "1. Error\nMap is not rectangular");
+			parse_err(map, NULL, "Error\nMap is not rectangular");
 		i++;
 	}
 }
@@ -40,7 +40,7 @@ void	map_is_closed(char **map)
 	i = 0;
 	matlen = ft_matlen(map);
 	len = ft_strlen(map[i]);
-	while (i < matlen)
+	while (i < matlen - 1)
 	{
 		if (map[i][0] != '1')
 			parse_err(map, NULL, "Error\nMap is not walled in");
@@ -48,7 +48,7 @@ void	map_is_closed(char **map)
 			parse_err(map, NULL, "Error\nMap is not walled in");
 		i++;
 	}
-	if (!check_row_is_wall(map[0]) || !check_row_is_wall(map[i - 1]))
+	if (!check_row_is_wall(map[0]) || !check_row_is_wall(map[i]))
 		parse_err(map, NULL, "Error\nMap is not walled in");
 }
 

@@ -6,7 +6,7 @@
 /*   By: cdomet-d <cdomet-d@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 11:17:48 by cdomet-d          #+#    #+#             */
-/*   Updated: 2024/02/02 17:28:10 by cdomet-d         ###   ########lyon.fr   */
+/*   Updated: 2024/02/05 10:54:22 by cdomet-d         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,28 @@ int	check_row_is_wall(char *map)
 		if (map[i] != '1')
 			return (FAILURE);
 		i++;
+	}
+	return (SUCCESS);
+}
+
+int	map_extension_is_valid(char *str)
+{
+	size_t	i;
+	size_t	len;
+	
+	i = ft_strlen(str) - 1;
+	len = i;
+	while (i >= len - 4)
+	{
+		if (i == len && str[i] != 'r')
+			return (FAILURE);
+		else if (i == len - 1 && str[i] != 'e')
+			return (FAILURE);
+		else if (i == len - 2 && str[i] != 'b')
+			return (FAILURE);
+		else if (i == len - 3 && str[i] != '.')
+			return (FAILURE);
+		i--;
 	}
 	return (SUCCESS);
 }
