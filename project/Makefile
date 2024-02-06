@@ -6,7 +6,7 @@
 #    By: cdomet-d <cdomet-d@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/07 10:23:52 by cdomet-d          #+#    #+#              #
-#    Updated: 2024/02/02 15:18:32 by cdomet-d         ###   ########lyon.fr    #
+#    Updated: 2024/02/06 13:26:17 by cdomet-d         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,7 @@ INCLUDES = -I/usr/include -I$(MLX_DIR)
 MLX_FLAGS = -L$(MLX_DIR) -lmlx_Linux -L/usr/lib -I$(MLX_LIB) -lX11 -lm -lz -lXext $(MLX_LIB)
 
 SRCS := window_handling.c \
+		init_display.c \
 		map_handling.c \
 		parsing_utils.c \
 		parsing.c \
