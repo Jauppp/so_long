@@ -6,7 +6,7 @@
 /*   By: cdomet-d <cdomet-d@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 11:17:48 by cdomet-d          #+#    #+#             */
-/*   Updated: 2024/02/05 10:54:22 by cdomet-d         ###   ########lyon.fr   */
+/*   Updated: 2024/02/07 12:00:46 by cdomet-d         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	is_sprite_trapped(char **map, size_t i, size_t j)
 {
-	while (map[i][j] != '1'&& map[i][j] != 'v')
+	while (map[i][j] != '1' && map[i][j] != 'v')
 	{
 		map[i][j] = 'v';
 		is_sprite_trapped(map, i + 1, j);
@@ -63,7 +63,7 @@ int	map_extension_is_valid(char *str)
 {
 	size_t	i;
 	size_t	len;
-	
+
 	i = ft_strlen(str) - 1;
 	len = i;
 	while (i >= len - 4)

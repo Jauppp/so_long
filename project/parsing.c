@@ -6,7 +6,7 @@
 /*   By: cdomet-d <cdomet-d@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 10:48:39 by cdomet-d          #+#    #+#             */
-/*   Updated: 2024/02/05 11:29:31 by cdomet-d         ###   ########lyon.fr   */
+/*   Updated: 2024/02/07 12:00:31 by cdomet-d         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	map_is_rectangular(char **map)
 	size_t	i;
 	size_t	len;
 	size_t	matlen;
-	
+
 	i = 0;
 	matlen = ft_matlen(map);
 	if (matlen < 3)
@@ -101,7 +101,7 @@ int	map_has_collectible(char **map)
 	}
 	if (collectible == False)
 		return (FAILURE);
-	else 
+	else
 		return (SUCCESS);
 }
 

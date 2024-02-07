@@ -6,13 +6,11 @@
 /*   By: cdomet-d <cdomet-d@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 11:46:11 by cdomet-d          #+#    #+#             */
-/*   Updated: 2024/02/02 16:04:13 by cdomet-d         ###   ########lyon.fr   */
+/*   Updated: 2024/02/07 12:01:05 by cdomet-d         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-
 
 void	print_map(char **map)
 {
@@ -30,7 +28,6 @@ void	print_map(char **map)
 	ft_printf("\n|==================================|\n");
 }
 
-
 size_t	ft_matlen(char **str)
 {
 	size_t	i;
@@ -39,4 +36,21 @@ size_t	ft_matlen(char **str)
 	while (str[i] && str[i][0] != '\n')
 		i++;
 	return (i);
+}
+
+void	dis_null_init(t_display *display, char **map)
+{
+	display->mlx_id = NULL;
+	display->win_id = NULL;
+	display->bg = NULL;
+	display->exit = NULL;
+	display->item = NULL;
+	display->player = NULL;
+	display->wall = NULL;
+	display->sprite.h = 160;
+	display->sprite.w = 160;
+	display->window.h = display->sprite.h * ft_matlen(map);
+	display->window.w = display->sprite.w * (ft_strlen(map[0]) - 1);
+	display->coo.i = 0;
+	display->coo.j = 0;
 }

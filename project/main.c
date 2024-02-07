@@ -6,7 +6,7 @@
 /*   By: cdomet-d <cdomet-d@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 14:51:00 by cdomet-d          #+#    #+#             */
-/*   Updated: 2024/02/05 13:09:29 by cdomet-d         ###   ########lyon.fr   */
+/*   Updated: 2024/02/07 11:59:43 by cdomet-d         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ int	main(int argc, char *argv[])
 	else if (argc == 2)
 	{
 		if (!map_extension_is_valid(argv[1]))
-			parse_err(NULL, NULL, "Error\nInvalid map extension");	
+			parse_err(NULL, NULL, "Error\nInvalid map extension");
 		init_map_fd(map, argv[1]);
-	}	
-	else 
+	}
+	else
 		parse_err(NULL, NULL, "Error\nToo many arguments");
 	is_map_valid(map);
 	open_window(map);

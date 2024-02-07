@@ -6,7 +6,7 @@
 /*   By: cdomet-d <cdomet-d@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 14:02:55 by cdomet-d          #+#    #+#             */
-/*   Updated: 2024/02/06 16:21:25 by cdomet-d         ###   ########lyon.fr   */
+/*   Updated: 2024/02/07 12:01:44 by cdomet-d         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include "../build/mlx/mlx.h"
 # include "../build/mlx/mlx_int.h"
 
-# define MAX_ROW 150
+# define MAX_ROW 50
 # define SUCCESS 1
 # define FAILURE 0
 # define ERR 2
@@ -37,21 +37,22 @@ typedef struct s_size
 
 typedef struct s_display
 {
-	void		*win_id;
 	void		*mlx_id;
+	void		*win_id;
 	void		*bg;
-	void		*wall;
+	void		*exit;
 	void		*item;
 	void		*player;
-	void		*exit;
+	void		*wall;
+	t_coor		coo;
 	t_size		sprite;
 	t_size		window;
-	t_coor		coo;
 }	t_display;
 
 /* Utils */
 size_t	ft_matlen(char **str);
 void	print_map(char **map);
+void	dis_null_init(t_display *display, char **map);
 
 /* Map handling */
 char	**copy_tab(char **map);
@@ -74,19 +75,22 @@ t_coor	find_sprite_coordinates(char **map, char sprite, t_coor coordinates);
 void	is_sprite_trapped(char **map, size_t i, size_t j);
 
 /* Error handling */
-void	free_and_exit(char **map, int error_code);
-void	free_double_tab(char **double_tab);
-void	free_mlx(t_display display);
 void	mem_err(char **map, size_t row, int error_code);
 void	parse_err(char **map, char **map_cpy, char *error_message);
+void	mlx_error(char **map, t_display display, char *error_message);
 
 /* Window handling */
 void	open_window(char **map);
 
 /* Init display */
 void	init_display(t_display *display, char **map);
-void	init_sprites(t_display *display);
+void	init_sprites(t_display *display, char **map);
 void	init_coordinate(t_coor *img, t_display display);
 void	load_map(t_display display, t_coor img, char **map);
+
+/* Memory handling*/
+void	free_and_exit(char **map, int error_code);
+void	free_double_tab(char **double_tab);
+void	free_mlx(t_display display);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: cdomet-d <cdomet-d@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 14:06:08 by cdomet-d          #+#    #+#             */
-/*   Updated: 2024/02/05 13:43:07 by cdomet-d         ###   ########lyon.fr   */
+/*   Updated: 2024/02/07 11:59:50 by cdomet-d         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,12 +61,12 @@ void	init_map_fd(char **map, char *arg)
 	map[row] = NULL;
 }
 
-char **copy_tab(char **map)
+char	**copy_tab(char **map)
 {
 	size_t	matlen;
 	size_t	i;
-	char 	**map_cpy;
-	
+	char	**map_cpy;
+
 	matlen = ft_matlen(map);
 	map_cpy = malloc((matlen + 1) * sizeof(map_cpy));
 	if (errno)
@@ -84,9 +84,9 @@ char **copy_tab(char **map)
 
 void	is_map_valid(char **map)
 {
-	char 	**map_cpy;
+	char	**map_cpy;
 	t_coor	coor;
-	
+
 	coor.i = 0;
 	coor.j = 0;
 	map_is_rectangular(map);
@@ -104,6 +104,6 @@ void	is_map_valid(char **map)
 	if (map_has_one_exit(map_cpy))
 		parse_err(map, map_cpy, "Error\nPlayer can't reach the exit :(");
 	if (map_has_collectible(map_cpy))
-		parse_err(map, map_cpy, "Error\nPlayer can't reach all collectibles :(");
+		parse_err(map, map_cpy, "Error\nPlayer can't reach all items :(");
 	free_double_tab(map_cpy);
 }
