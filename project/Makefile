@@ -6,7 +6,7 @@
 #    By: cdomet-d <cdomet-d@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/07 10:23:52 by cdomet-d          #+#    #+#              #
-#    Updated: 2024/02/07 11:33:44 by cdomet-d         ###   ########lyon.fr    #
+#    Updated: 2024/02/07 12:44:37 by cdomet-d         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,7 @@ SRCS := window_handling.c \
 		utils.c \
 		error_handling.c \
 		mem_handling.c \
+		hook_functions.c \
 
 OBJS := $(SRCS:%.c=$(BUILD_DIR)/%.o)
 DEPS := $(OBJS:%.o=%.d)

@@ -6,7 +6,7 @@
 /*   By: cdomet-d <cdomet-d@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 11:17:48 by cdomet-d          #+#    #+#             */
-/*   Updated: 2024/02/07 12:00:46 by cdomet-d         ###   ########lyon.fr   */
+/*   Updated: 2024/02/07 15:54:07 by cdomet-d         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,11 @@ void	is_sprite_trapped(char **map, size_t i, size_t j)
 {
 	while (map[i][j] != '1' && map[i][j] != 'v')
 	{
+		if (map[i][j] == 'E')
+		{
+			map[i][j] = 'v';
+			return ;
+		}
 		map[i][j] = 'v';
 		is_sprite_trapped(map, i + 1, j);
 		is_sprite_trapped(map, i - 1, j);

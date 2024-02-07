@@ -6,7 +6,7 @@
 /*   By: cdomet-d <cdomet-d@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 11:46:11 by cdomet-d          #+#    #+#             */
-/*   Updated: 2024/02/07 12:01:05 by cdomet-d         ###   ########lyon.fr   */
+/*   Updated: 2024/02/07 16:51:46 by cdomet-d         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ size_t	ft_matlen(char **str)
 	return (i);
 }
 
-void	dis_null_init(t_display *display, char **map)
+void	dis_null_init(t_display *display)
 {
 	display->mlx_id = NULL;
 	display->win_id = NULL;
@@ -47,10 +47,12 @@ void	dis_null_init(t_display *display, char **map)
 	display->item = NULL;
 	display->player = NULL;
 	display->wall = NULL;
-	display->sprite.h = 160;
-	display->sprite.w = 160;
-	display->window.h = display->sprite.h * ft_matlen(map);
-	display->window.w = display->sprite.w * (ft_strlen(map[0]) - 1);
 	display->coo.i = 0;
 	display->coo.j = 0;
+	display->sprite_coo.i = 0;
+	display->sprite_coo.j = 0;
+	display->sprite.h = 160;
+	display->sprite.w = 160;
+	display->window.h = display->sprite.h * ft_matlen(display->map);
+	display->window.w = display->sprite.w * (ft_strlen(display->map[0]) - 1);
 }

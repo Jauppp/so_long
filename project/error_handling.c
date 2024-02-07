@@ -6,7 +6,7 @@
 /*   By: cdomet-d <cdomet-d@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 15:15:28 by cdomet-d          #+#    #+#             */
-/*   Updated: 2024/02/07 11:33:24 by cdomet-d         ###   ########lyon.fr   */
+/*   Updated: 2024/02/07 21:23:26 by cdomet-d         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,17 @@ void	parse_err(char **map, char **map_cpy, char *error_message)
 {
 	if (error_message)
 		ft_printf("%s\n", error_message);
+	if (map)
+		free_tab(map);
 	if (map_cpy)
 		free_double_tab(map_cpy);
-	free_and_exit(map, EXIT_FAILURE);
+	exit(EXIT_FAILURE);
 }
 
-void	mlx_error(char **map, t_display display, char *error_message)
+void	mlx_error(t_display display, char *error_message)
 {
 	if (error_message)
 		ft_printf("%s\n", error_message);
 	free_mlx(display);
-	free_and_exit(map, EXIT_FAILURE);
+	exit(EXIT_FAILURE);
 }
