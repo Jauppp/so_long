@@ -6,7 +6,7 @@
 /*   By: cdomet-d <cdomet-d@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 14:02:55 by cdomet-d          #+#    #+#             */
-/*   Updated: 2024/02/08 14:41:40 by cdomet-d         ###   ########lyon.fr   */
+/*   Updated: 2024/02/08 17:49:41 by cdomet-d         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,25 +39,25 @@ typedef struct s_size
 
 typedef struct s_display
 {
-	int			move_counter;
-	char		**map;
-	void		*mlx_id;
-	void		*win_id;
-	void		*bg;
-	void		*exit;
-	void		*exit_1;
-	void		*item;
-	void		*player;
-	void		*player_1;
-	void		*player_2;
-	void		*wall;
-	size_t		item_total;
-	size_t		item_counter;
-	size_t		anim;
-	t_coor		coo; // x & y indexes to navigate in map
-	t_coor		sprite_coo; // x & y placement of sprites in window
-	t_size		sprite; // sprites height & width
-	t_size		window; // window size for dynamic sizing
+	char				**map;
+	size_t				anim;
+	t_coor				coo; // x & y indexes to navigate in map
+	t_coor				sprite_coo; // x & y placement of sprites in window
+	t_size				sprite; // sprites height & width
+	t_size				window; // window size for dynamic sizing
+	unsigned int		item_counter;
+	unsigned int		item_total;
+	unsigned int		move_counter;
+	void				*bg;
+	void				*exit_1;
+	void				*exit;
+	void				*item;
+	void				*mlx_id;
+	void				*player_1;
+	void				*player_2;
+	void				*player;
+	void				*wall;
+	void				*win_id;
 }	t_display;
 
 /* Utils */
@@ -85,6 +85,7 @@ int		check_row_is_wall(char *map);
 int		map_extension_is_valid(char *str);
 t_coor	find_sprite_coordinates(char **map, char sprite, t_coor coordinates);
 void	is_sprite_trapped(char **map, size_t i, size_t j);
+void	char_is_valid(char **map);
 
 /* Error handling */
 void	mem_err(char **map, size_t row, int error_code);

@@ -6,7 +6,7 @@
 /*   By: cdomet-d <cdomet-d@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 11:17:48 by cdomet-d          #+#    #+#             */
-/*   Updated: 2024/02/07 15:54:07 by cdomet-d         ###   ########lyon.fr   */
+/*   Updated: 2024/02/08 17:50:03 by cdomet-d         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,4 +84,24 @@ int	map_extension_is_valid(char *str)
 		i--;
 	}
 	return (SUCCESS);
+}
+
+void	char_is_valid(char **map)
+{
+	t_coor	coo;
+
+	coo.i = 0;
+	while (map[coo.i])
+	{
+		coo.j = 0;
+		while (map[coo.i][coo.j])
+		{
+			if (map[coo.i][coo.j] != '1' && map[coo.i][coo.j] != '0' && \
+			map[coo.i][coo.j] != 'P' && map[coo.i][coo.j] != 'E' && \
+			map[coo.i][coo.j] != 'C' && map[coo.i][coo.j] != '\n')
+				parse_err(map, NULL, "Error\nForbidden character in map");
+			coo.j++;
+		}
+		coo.i++;
+	}
 }

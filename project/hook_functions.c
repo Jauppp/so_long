@@ -6,7 +6,7 @@
 /*   By: cdomet-d <cdomet-d@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 12:37:37 by cdomet-d          #+#    #+#             */
-/*   Updated: 2024/02/08 14:36:11 by cdomet-d         ###   ########lyon.fr   */
+/*   Updated: 2024/02/08 17:50:39 by cdomet-d         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ int	key_hook(int keycode, t_display *display)
 {
 	null_init_coo(&display->coo);
 	display->coo = find_sprite_coordinates(display->map, 'P', display->coo);
-	printf("keycode = %d\n", keycode);
 	if (keycode == ESC)
 		mlx_loop_end(display->mlx_id);
 	if (keycode == 'w')

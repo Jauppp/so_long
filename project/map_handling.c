@@ -6,7 +6,7 @@
 /*   By: cdomet-d <cdomet-d@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 14:06:08 by cdomet-d          #+#    #+#             */
-/*   Updated: 2024/02/07 11:59:50 by cdomet-d         ###   ########lyon.fr   */
+/*   Updated: 2024/02/08 17:19:53 by cdomet-d         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,7 @@ void	is_map_valid(char **map)
 
 	coor.i = 0;
 	coor.j = 0;
+	char_is_valid(map);
 	map_is_rectangular(map);
 	map_is_closed(map);
 	map_has_one_start_position(map);
