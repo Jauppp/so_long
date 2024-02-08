@@ -6,7 +6,7 @@
 /*   By: cdomet-d <cdomet-d@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 12:37:37 by cdomet-d          #+#    #+#             */
-/*   Updated: 2024/02/08 00:25:44 by cdomet-d         ###   ########lyon.fr   */
+/*   Updated: 2024/02/08 14:36:11 by cdomet-d         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,108 +14,19 @@
 
 int	key_hook(int keycode, t_display *display)
 {
-	t_coor	player;
-	int		anim;
-	
-	anim = 0;
-	player.i = 0;
-	player.j = 0;
-	player = find_sprite_coordinates(display->map, 'P', player);
+	null_init_coo(&display->coo);
+	display->coo = find_sprite_coordinates(display->map, 'P', display->coo);
 	printf("keycode = %d\n", keycode);
 	if (keycode == ESC)
 		mlx_loop_end(display->mlx_id);
 	if (keycode == 'w')
-	{
-		if (display->map[player.i - 1][player.j] != '1')
-		{
-			if (display->map[player.i - 1][player.j] == 'E')
-			{
-				display->map[player.i - 1][player.j] = 'e';
-				load_map(*display);
-				while (anim < 1800)
-				{
-					display->map[player.i][player.j] = 'p';
-					load_map(*display);
-					display->map[player.i][player.j] = 'P';
-					load_map(*display);
-					anim++;
-				}
-			mlx_loop_end(display->mlx_id);
-			}
-			display->map[player.i - 1][player.j] = 'P';
-			display->map[player.i][player.j] = '0';
-			load_map(*display);
-		}
-	}
+		move_up(display);
 	if (keycode == 'a')
-	{
-		if (display->map[player.i][player.j - 1] != '1')
-		{
-			if (display->map[player.i][player.j - 1] == 'E')
-			{
-				display->map[player.i][player.j - 1] = 'e';
-				load_map(*display);
-				while (anim < 1800)
-				{
-					display->map[player.i][player.j] = 'p';
-					load_map(*display);
-					display->map[player.i][player.j] = 'P';
-					load_map(*display);
-					anim++;
-				}
-				mlx_loop_end(display->mlx_id);
-			}
-			display->map[player.i][player.j - 1] = 'P';
-			display->map[player.i][player.j] = '0';
-			load_map(*display);
-		}
-	}
+		move_left(display);
 	if (keycode == 'd')
-	{
-		if (display->map[player.i][player.j + 1] != '1')
-		{
-			if (display->map[player.i][player.j + 1] == 'E')
-			{
-				display->map[player.i][player.j + 1] = 'e';
-				load_map(*display);
-				while (anim < 1800)
-				{
-					display->map[player.i][player.j] = 'p';
-					load_map(*display);
-					display->map[player.i][player.j] = 'P';
-					load_map(*display);
-					anim++;
-				}
-				mlx_loop_end(display->mlx_id);
-			}
-			display->map[player.i][player.j + 1] = 'P';
-			display->map[player.i][player.j] = '0';
-			load_map(*display);
-		}
-	}
+		move_right(display);
 	if (keycode == 's')
-	{
-		if (display->map[player.i + 1][player.j] != '1')
-		{
-			if (display->map[player.i + 1][player.j] == 'E')
-			{
-				display->map[player.i + 1][player.j] = 'e';
-				load_map(*display);
-				while (anim < 1800)
-				{
-					display->map[player.i][player.j] = 'p';
-					load_map(*display);
-					display->map[player.i][player.j] = 'P';
-					load_map(*display);
-					anim++;
-				}
-				mlx_loop_end(display->mlx_id);
-			}
-			display->map[player.i + 1][player.j] = 'P';
-			display->map[player.i][player.j] = '0';
-			load_map(*display);
-		}
-	}
+		move_down(display);
 	return (0);
 }
 

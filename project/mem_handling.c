@@ -6,7 +6,7 @@
 /*   By: cdomet-d <cdomet-d@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 11:29:41 by cdomet-d          #+#    #+#             */
-/*   Updated: 2024/02/07 21:20:28 by cdomet-d         ###   ########lyon.fr   */
+/*   Updated: 2024/02/08 12:12:03 by cdomet-d         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,16 @@ void	free_mlx(t_display display)
 		mlx_destroy_image(display.mlx_id, display.bg);
 	if (display.exit)
 		mlx_destroy_image(display.mlx_id, display.exit);
+	if (display.exit_1)
+		mlx_destroy_image(display.mlx_id, display.exit_1);
 	if (display.item)
 		mlx_destroy_image(display.mlx_id, display.item);
 	if (display.player)
 		mlx_destroy_image(display.mlx_id, display.player);
+	if (display.player_1)
+		mlx_destroy_image(display.mlx_id, display.player_1);
+	if (display.player_2)
+		mlx_destroy_image(display.mlx_id, display.player_2);
 	if (display.wall)
 		mlx_destroy_image(display.mlx_id, display.wall);
 	if (display.win_id)

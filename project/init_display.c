@@ -6,7 +6,7 @@
 /*   By: cdomet-d <cdomet-d@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 09:38:43 by cdomet-d          #+#    #+#             */
-/*   Updated: 2024/02/08 00:18:08 by cdomet-d         ###   ########lyon.fr   */
+/*   Updated: 2024/02/08 14:34:09 by cdomet-d         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,65 +42,24 @@ void	init_decor(t_display *display)
 		"../sprites/exit.xpm", &display->sprite.w, &display->sprite.h);
 	if (!display->exit)
 		mlx_error(*display, "Error\nCould not fetch sprite");
-	display->exit_open = mlx_xpm_file_to_image(display->mlx_id, \
+	display->exit_1 = mlx_xpm_file_to_image(display->mlx_id, \
 		"../sprites/exit_02.xpm", &display->sprite.w, &display->sprite.h);
-	if (!display->exit_open)
+	if (!display->exit_1)
 		mlx_error(*display, "Error\nCould not fetch sprite");
 }
+
 void	init_player(t_display *display)
 {
 	display->player = mlx_xpm_file_to_image(display->mlx_id, \
 		"../sprites/player.xpm", &display->sprite.w, &display->sprite.h);
 	if (!display->player)
 		mlx_error(*display, "Error\nCould not fetch sprite");
-	display->player_dance_1 = mlx_xpm_file_to_image(display->mlx_id, \
+	display->player_1 = mlx_xpm_file_to_image(display->mlx_id, \
 		"../sprites/player_01.xpm", &display->sprite.w, &display->sprite.h);
-	if (!display->player_dance_1)
+	if (!display->player_1)
 		mlx_error(*display, "Error\nCould not fetch sprite");
-	display->player_dance_2 = mlx_xpm_file_to_image(display->mlx_id, \
+	display->player_2 = mlx_xpm_file_to_image(display->mlx_id, \
 		"../sprites/player_02.xpm", &display->sprite.w, &display->sprite.h);
-	if (!display->player_dance_2)
+	if (!display->player_2)
 		mlx_error(*display, "Error\nCould not fetch sprite");
-}
-
-
-void	init_coordinate(t_display *display)
-{
-	display->sprite_coo.i = display->sprite.w * display->coo.i;
-	display->sprite_coo.j = display->sprite.h * display->coo.j;
-}
-
-void	load_map(t_display display)
-{
-	while (display.map[display.coo.i])
-	{
-		display.coo.j = 0;
-		while (display.map[display.coo.i][display.coo.j])
-		{
-			init_coordinate(&display);
-			if (display.map[display.coo.i][display.coo.j] == '1')
-				mlx_put_image_to_window(display.mlx_id, display.win_id, \
-					display.wall, display.sprite_coo.j, display.sprite_coo.i);
-			else if (display.map[display.coo.i][display.coo.j] == 'C')
-				mlx_put_image_to_window(display.mlx_id, display.win_id, \
-					display.item, display.sprite_coo.j, display.sprite_coo.i);
-			else if (display.map[display.coo.i][display.coo.j] == 'P')
-				mlx_put_image_to_window(display.mlx_id, display.win_id, \
-					display.player, display.sprite_coo.j, display.sprite_coo.i);
-			else if (display.map[display.coo.i][display.coo.j] == 'E')
-				mlx_put_image_to_window(display.mlx_id, display.win_id, \
-					display.exit, display.sprite_coo.j, display.sprite_coo.i);
-			else if (display.map[display.coo.i][display.coo.j] == 'e')
-				mlx_put_image_to_window(display.mlx_id, display.win_id, \
-					display.exit_open, display.sprite_coo.j, display.sprite_coo.i);
-			else if (display.map[display.coo.i][display.coo.j] == 'p')
-				mlx_put_image_to_window(display.mlx_id, display.win_id, \
-					display.player_dance_1, display.sprite_coo.j, display.sprite_coo.i);
-			else
-				mlx_put_image_to_window(display.mlx_id, display.win_id, \
-					display.bg, display.sprite_coo.j, display.sprite_coo.i);
-			display.coo.j++;
-		}
-		display.coo.i++;
-	}
 }

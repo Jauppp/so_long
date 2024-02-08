@@ -6,7 +6,7 @@
 /*   By: cdomet-d <cdomet-d@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 14:02:55 by cdomet-d          #+#    #+#             */
-/*   Updated: 2024/02/08 00:15:13 by cdomet-d         ###   ########lyon.fr   */
+/*   Updated: 2024/02/08 14:41:40 by cdomet-d         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,17 +39,21 @@ typedef struct s_size
 
 typedef struct s_display
 {
+	int			move_counter;
 	char		**map;
 	void		*mlx_id;
 	void		*win_id;
 	void		*bg;
 	void		*exit;
-	void		*exit_open;
+	void		*exit_1;
 	void		*item;
 	void		*player;
-	void		*player_dance_1;
-	void		*player_dance_2;
+	void		*player_1;
+	void		*player_2;
 	void		*wall;
+	size_t		item_total;
+	size_t		item_counter;
+	size_t		anim;
 	t_coor		coo; // x & y indexes to navigate in map
 	t_coor		sprite_coo; // x & y placement of sprites in window
 	t_size		sprite; // sprites height & width
@@ -60,6 +64,8 @@ typedef struct s_display
 size_t	ft_matlen(char **str);
 void	print_map(char **map);
 void	dis_null_init(t_display *display);
+void	count_collectibles(t_display *display);
+void	null_init_coo(t_coor *coo);
 
 /* Map handling */
 char	**copy_tab(char **map);
@@ -94,6 +100,9 @@ void	init_decor(t_display *display);
 void	init_player(t_display *display);
 void	init_coordinate(t_display *display);
 void	load_map(t_display display);
+void	load_decor(t_display display);
+void	load_player(t_display display);
+
 
 /* Memory handling*/
 void	free_and_exit(char **map, int error_code);
@@ -105,5 +114,13 @@ void	free_tab(char **map);
 int		key_hook(int keycode, t_display *display);
 int		mouse_hook(int button, int x, int y, t_display *display);
 int		close_win(t_display *display);
+
+/* Player moves */
+void	move_up(t_display	*display);
+void	move_down(t_display	*display);
+void	move_right(t_display	*display);
+void	move_left(t_display	*display);
+void	open_exit(t_display display);
+
 
 #endif

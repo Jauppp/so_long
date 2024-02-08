@@ -6,7 +6,7 @@
 /*   By: cdomet-d <cdomet-d@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 11:46:11 by cdomet-d          #+#    #+#             */
-/*   Updated: 2024/02/07 16:51:46 by cdomet-d         ###   ########lyon.fr   */
+/*   Updated: 2024/02/08 14:34:52 by cdomet-d         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,21 +38,18 @@ size_t	ft_matlen(char **str)
 	return (i);
 }
 
-void	dis_null_init(t_display *display)
+void	count_collectibles(t_display *display)
 {
-	display->mlx_id = NULL;
-	display->win_id = NULL;
-	display->bg = NULL;
-	display->exit = NULL;
-	display->item = NULL;
-	display->player = NULL;
-	display->wall = NULL;
-	display->coo.i = 0;
-	display->coo.j = 0;
-	display->sprite_coo.i = 0;
-	display->sprite_coo.j = 0;
-	display->sprite.h = 160;
-	display->sprite.w = 160;
-	display->window.h = display->sprite.h * ft_matlen(display->map);
-	display->window.w = display->sprite.w * (ft_strlen(display->map[0]) - 1);
+	while (display->map[display->coo.i])
+	{
+		display->coo.j = 0;
+		while (display->map[display->coo.i][display->coo.j])
+		{
+			if (display->map[display->coo.i][display->coo.j] == 'C')
+				display->item_total++;
+			display->coo.j++;
+		}
+		display->coo.i++;
+	}
+	null_init_coo(&display->coo);
 }
