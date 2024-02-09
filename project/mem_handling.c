@@ -6,7 +6,7 @@
 /*   By: cdomet-d <cdomet-d@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 11:29:41 by cdomet-d          #+#    #+#             */
-/*   Updated: 2024/02/08 12:12:03 by cdomet-d         ###   ########lyon.fr   */
+/*   Updated: 2024/02/09 13:57:33 by cdomet-d         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ void	free_and_exit(char **map, int error_code)
 {
 	if (map)
 		free_tab(map);
-	if (map)
-		free(map);
+	// if (map)
+	// 	free(map);
 	if (!error_code)
 		exit(EXIT_SUCCESS);
 	else

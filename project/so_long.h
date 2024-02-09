@@ -6,7 +6,7 @@
 /*   By: cdomet-d <cdomet-d@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 14:02:55 by cdomet-d          #+#    #+#             */
-/*   Updated: 2024/02/09 10:38:39 by cdomet-d         ###   ########lyon.fr   */
+/*   Updated: 2024/02/09 17:51:31 by cdomet-d         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,8 @@ void	init_coordinate(t_display *display);
 void	load_map(t_display display);
 void	load_decor(t_display display);
 void	load_player(t_display display);
+void	load_move(t_display	display);
+void	player_anim(t_display display);
 
 
 /* Memory handling*/
@@ -117,6 +119,8 @@ void	free_tab(char **map);
 int		key_hook(int keycode, t_display *display);
 int		mouse_hook(int button, int x, int y, t_display *display);
 int		close_win(t_display *display);
+void	clear_player_move(t_display *display);
+void	display_player_move(t_display *display);
 
 /* Player moves */
 void	move_up(t_display	*display);

@@ -6,7 +6,7 @@
 /*   By: cdomet-d <cdomet-d@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 10:48:39 by cdomet-d          #+#    #+#             */
-/*   Updated: 2024/02/07 12:00:31 by cdomet-d         ###   ########lyon.fr   */
+/*   Updated: 2024/02/09 14:35:18 by cdomet-d         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ void	map_is_rectangular(char **map)
 	matlen = ft_matlen(map);
 	if (matlen < 3)
 		parse_err(map, NULL, "Error\nMap is not rectangular");
-	len = ft_strlen(map[i]);
+	len = ft_strlen(map[i]) - 1;
 	while (i < matlen)
 	{
-		if (ft_strlen(map[i]) != len)
+		if (ft_strlen(map[i]) - 1 != len)
 			parse_err(map, NULL, "Error\nMap is not rectangular");
 		i++;
 	}

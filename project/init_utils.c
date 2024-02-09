@@ -6,7 +6,7 @@
 /*   By: cdomet-d <cdomet-d@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 12:15:29 by cdomet-d          #+#    #+#             */
-/*   Updated: 2024/02/08 14:37:17 by cdomet-d         ###   ########lyon.fr   */
+/*   Updated: 2024/02/09 17:52:34 by cdomet-d         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ void	dis_null_init(t_display *display)
 	display->anim = 0;
 	display->sprite.h = 160;
 	display->sprite.w = 160;
-	display->window.h = display->sprite.h * ft_matlen(display->map);
-	display->window.w = display->sprite.w * (ft_strlen(display->map[0]) - 1);
+	display->window.h = (display->sprite.h * ft_matlen(display->map) + 160);
+	display->window.w = (display->sprite.w * (ft_strlen(display->map[0]) - 1));
 	count_collectibles(display);
 }
 
@@ -44,6 +44,6 @@ void	null_init_coo(t_coor *coo)
 
 void	init_coordinate(t_display *display)
 {
-	display->sprite_coo.i = display->sprite.w * display->coo.i;
+	display->sprite_coo.i = display->sprite.w * display->coo.i + 160;
 	display->sprite_coo.j = display->sprite.h * display->coo.j;
 }

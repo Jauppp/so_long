@@ -6,7 +6,7 @@
 /*   By: cdomet-d <cdomet-d@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 14:06:08 by cdomet-d          #+#    #+#             */
-/*   Updated: 2024/02/09 10:44:28 by cdomet-d         ###   ########lyon.fr   */
+/*   Updated: 2024/02/09 13:07:24 by cdomet-d         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ void	init_map_fd(char **map, char *arg)
 
 	row = 0;
 	fd = open(arg, O_RDONLY);
-	printf("%d\n", fd);
 	if (errno)
 		mem_err(map, row, errno);
 	new_row = get_next_line(fd);

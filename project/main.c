@@ -6,7 +6,7 @@
 /*   By: cdomet-d <cdomet-d@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 14:51:00 by cdomet-d          #+#    #+#             */
-/*   Updated: 2024/02/09 10:47:49 by cdomet-d         ###   ########lyon.fr   */
+/*   Updated: 2024/02/09 15:11:09 by cdomet-d         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,6 @@ int	main(int argc, char *argv[])
 	display.map = copy_tab(map);
 	free_tab(map);
 	open_window(display);
-	free_and_exit(display.map, 0);
+	free_double_tab(display.map);
+	exit(0);
 }

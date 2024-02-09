@@ -6,7 +6,7 @@
 /*   By: cdomet-d <cdomet-d@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 12:18:08 by cdomet-d          #+#    #+#             */
-/*   Updated: 2024/02/08 17:55:10 by cdomet-d         ###   ########lyon.fr   */
+/*   Updated: 2024/02/09 18:05:34 by cdomet-d         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	move_up(t_display	*display)
 		display->item_counter == display->item_total)
 		{
 			display->map[display->coo.i - 1][display->coo.j] = 'e';
-			load_map(*display);
+			load_move(*display);
 			open_exit(*display);
 		}
 		else if (display->map[display->coo.i - 1][display->coo.j] != 'E')
@@ -30,7 +30,7 @@ void	move_up(t_display	*display)
 			display->move_counter++;
 			display->map[display->coo.i - 1][display->coo.j] = 'P';
 			display->map[display->coo.i][display->coo.j] = '0';
-			load_map(*display);
+			load_move(*display);
 			ft_printf("Total moves : %u\n", display->move_counter);
 		}
 		else
@@ -49,7 +49,7 @@ void	move_down(t_display	*display)
 		display->item_counter == display->item_total)
 		{
 			display->map[display->coo.i + 1][display->coo.j] = 'e';
-			load_map(*display);
+			load_move(*display);
 			open_exit(*display);
 		}
 		else if (display->map[display->coo.i + 1][display->coo.j] != 'E')
@@ -57,7 +57,7 @@ void	move_down(t_display	*display)
 			display->move_counter++;
 			display->map[display->coo.i + 1][display->coo.j] = 'P';
 			display->map[display->coo.i][display->coo.j] = '0';
-			load_map(*display);
+			load_move(*display);
 			ft_printf("Total moves : %u\n", display->move_counter);
 		}
 		else
@@ -76,7 +76,7 @@ void	move_right(t_display	*display)
 		display->item_counter == display->item_total)
 		{
 			display->map[display->coo.i][display->coo.j + 1] = 'e';
-			load_map(*display);
+			load_move(*display);
 			open_exit(*display);
 		}
 		else if (display->map[display->coo.i][display->coo.j + 1] != 'E')
@@ -84,7 +84,7 @@ void	move_right(t_display	*display)
 			display->move_counter++;
 			display->map[display->coo.i][display->coo.j + 1] = 'P';
 			display->map[display->coo.i][display->coo.j] = '0';
-			load_map(*display);
+			load_move(*display);
 			ft_printf("Total moves : %u\n", display->move_counter);
 		}
 		else
@@ -103,7 +103,7 @@ void	move_left(t_display	*display)
 		display->item_counter == display->item_total)
 		{
 			display->map[display->coo.i][display->coo.j - 1] = 'e';
-			load_map(*display);
+			load_move(*display);
 			open_exit(*display);
 		}
 		else if (display->map[display->coo.i][display->coo.j - 1] != 'E')
@@ -111,7 +111,7 @@ void	move_left(t_display	*display)
 			display->move_counter++;
 			display->map[display->coo.i][display->coo.j - 1] = 'P';
 			display->map[display->coo.i][display->coo.j] = '0';
-			load_map(*display);
+			load_move(*display);
 			ft_printf("Total moves : %u\n", display->move_counter);
 		}
 		else
@@ -122,18 +122,15 @@ void	move_left(t_display	*display)
 
 void	open_exit(t_display display)
 {
-	while (display.anim < 4000)
+	while (display.anim < 2000)
 	{
-		if (display.anim % 10 == 0)
+		if (display.anim % 2 == 0)
 		{
 			display.map[display.coo.i][display.coo.j] = 'p';
-			load_map(display);
+			player_anim(display);
 		}
-		else if (display.anim % 10 == 1)
-		{
-			display.map[display.coo.i][display.coo.j] = 'd';
-			load_map(display);
-		}
+		display.map[display.coo.i][display.coo.j] = 'd';
+		player_anim(display);
 		display.anim++;
 	}
 	mlx_loop_end(display.mlx_id);
