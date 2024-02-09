@@ -6,7 +6,7 @@
 /*   By: cdomet-d <cdomet-d@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 14:51:00 by cdomet-d          #+#    #+#             */
-/*   Updated: 2024/02/07 17:05:34 by cdomet-d         ###   ########lyon.fr   */
+/*   Updated: 2024/02/09 10:47:49 by cdomet-d         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int	main(int argc, char *argv[])
 	t_display	display;
 
 	map[MAX_ROW - 1] = 0;
+	map[0] = NULL;
 	if (argc == 1)
 		init_map_stdin(map);
 	else if (argc == 2)

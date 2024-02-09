@@ -6,7 +6,7 @@
 /*   By: cdomet-d <cdomet-d@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 14:02:55 by cdomet-d          #+#    #+#             */
-/*   Updated: 2024/02/08 17:49:41 by cdomet-d         ###   ########lyon.fr   */
+/*   Updated: 2024/02/09 10:38:39 by cdomet-d         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,8 @@ void	char_is_valid(char **map);
 void	mem_err(char **map, size_t row, int error_code);
 void	parse_err(char **map, char **map_cpy, char *error_message);
 void	mlx_error(t_display display, char *error_message);
+void	print_error(int error_code, char *error_message);
+
 
 /* Window handling */
 void	open_window(t_display display);
