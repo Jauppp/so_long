@@ -16,7 +16,7 @@ void	mem_err(char **map, size_t row, int error_code)
 {
 	if (row)
 		map[row] = 0;
-	ft_printf("Error : %s\n", strerror(error_code));
+	strerror(error_code);
 	free_and_exit(map, error_code);
 }
 

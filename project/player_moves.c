@@ -122,16 +122,35 @@ void	move_left(t_display	*display)
 
 void	open_exit(t_display display)
 {
-	while (display.anim < 2000)
+	t_coor	center;
+	char 	*str;
+
+	errno = 0;
+	str = ft_itoa(display.move_counter);
+	if (errno)
+		mem_err(display.map, 0, errno);
+	while (display.anim < 60000)
 	{
 		if (display.anim % 2 == 0)
 		{
 			display.map[display.coo.i][display.coo.j] = 'p';
 			player_anim(display);
 		}
-		display.map[display.coo.i][display.coo.j] = 'd';
-		player_anim(display);
+		else
+		{
+			display.map[display.coo.i][display.coo.j] = 'd';
+			player_anim(display);
+		}		
 		display.anim++;
 	}
-	mlx_loop_end(display.mlx_id);
+	clear_map(&display);
+	load_map(display);
+	find_map_center(&display, &center);
+	mlx_put_image_to_window(display.mlx_id, display.win_id, \
+				display.win_screen, center.j * 160, center.i * 160);
+	mlx_string_put(display.mlx_id, display.win_id, 480, 80, 16710368, "You won in");
+	mlx_string_put(display.mlx_id, display.win_id, 560, 80, 16710368, str);
+	free(str);
+	mlx_string_put(display.mlx_id, display.win_id, 580, 80, 16710368, "moves !!");
+	// mlx_loop_end(display.mlx_id);
 }

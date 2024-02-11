@@ -58,14 +58,18 @@ typedef struct s_display
 	void				*player;
 	void				*wall;
 	void				*win_id;
+	void				*win_screen;
 }	t_display;
 
 /* Utils */
 size_t	ft_matlen(char **str);
+size_t	ft_strlen_n(char *	str);
 void	print_map(char **map);
 void	dis_null_init(t_display *display);
 void	count_collectibles(t_display *display);
 void	null_init_coo(t_coor *coo);
+void	clear_map(t_display *display);
+void	find_map_center(t_display *display, t_coor *center);
 
 /* Map handling */
 char	**copy_tab(char **map);
@@ -93,7 +97,6 @@ void	parse_err(char **map, char **map_cpy, char *error_message);
 void	mlx_error(t_display display, char *error_message);
 void	print_error(int error_code, char *error_message);
 
-
 /* Window handling */
 void	open_window(t_display display);
 
@@ -107,7 +110,6 @@ void	load_decor(t_display display);
 void	load_player(t_display display);
 void	load_move(t_display	display);
 void	player_anim(t_display display);
-
 
 /* Memory handling*/
 void	free_and_exit(char **map, int error_code);

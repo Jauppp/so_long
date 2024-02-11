@@ -120,10 +120,11 @@ void	load_move(t_display	display)
 
 void	player_anim(t_display display)
 {
+	init_coordinate(&display);
 	if (display.map[display.coo.i][display.coo.j] == 'p')
 		mlx_put_image_to_window(display.mlx_id, display.win_id, \
 		display.player_1, display.sprite_coo.j, display.sprite_coo.i);
-	else if (display.map[display.coo.i][display.coo.j] == 'P')
+	else if (display.map[display.coo.i][display.coo.j] == 'd')
 		mlx_put_image_to_window(display.mlx_id, display.win_id, \
-		display.player, display.sprite_coo.j, display.sprite_coo.i);
+		display.player_2, display.sprite_coo.j, display.sprite_coo.i);
 }

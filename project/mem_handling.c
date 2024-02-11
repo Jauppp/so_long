@@ -14,10 +14,7 @@
 
 void	free_and_exit(char **map, int error_code)
 {
-	if (map)
-		free_tab(map);
-	// if (map)
-	// 	free(map);
+	free_double_tab(map);
 	if (!error_code)
 		exit(EXIT_SUCCESS);
 	else
@@ -52,6 +49,8 @@ void	free_mlx(t_display display)
 		mlx_destroy_image(display.mlx_id, display.player_2);
 	if (display.wall)
 		mlx_destroy_image(display.mlx_id, display.wall);
+	if (display.win_screen)
+		mlx_destroy_image(display.mlx_id, display.win_screen);
 	if (display.win_id)
 		mlx_destroy_window(display.mlx_id, display.win_id);
 	if (display.mlx_id)

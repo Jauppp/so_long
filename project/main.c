@@ -33,6 +33,5 @@ int	main(int argc, char *argv[])
 	display.map = copy_tab(map);
 	free_tab(map);
 	open_window(display);
-	free_double_tab(display.map);
-	exit(0);
+	free_and_exit(display.map, 0);
 }

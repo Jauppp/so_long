@@ -24,6 +24,7 @@ void	dis_null_init(t_display *display)
 	display->player_1 = NULL;
 	display->player_2 = NULL;
 	display->wall = NULL;
+	display->win_screen = NULL;
 	null_init_coo(&display->coo);
 	display->item_total = 0;
 	display->item_counter = 0;

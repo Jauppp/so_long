@@ -21,11 +21,11 @@ void	map_is_rectangular(char **map)
 	i = 0;
 	matlen = ft_matlen(map);
 	if (matlen < 3)
-		parse_err(map, NULL, "Error\nMap is not rectangular");
-	len = ft_strlen(map[i]) - 1;
+		parse_err(map, NULL, "Error\nMap is too small");
+	len = ft_strlen_n(map[i]);
 	while (i < matlen)
 	{
-		if (ft_strlen(map[i]) - 1 != len)
+		if (ft_strlen_n(map[i]) != len)
 			parse_err(map, NULL, "Error\nMap is not rectangular");
 		i++;
 	}

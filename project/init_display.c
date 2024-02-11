@@ -22,6 +22,10 @@ void	init_display(t_display *display)
 		display->window.h, "so_long");
 	if (!display->win_id)
 		mlx_error(*display, "Error\nCould not initialize window");
+	display->win_screen = mlx_xpm_file_to_image(display->mlx_id, \
+		"../sprites/win_screen.xpm", &display->sprite.w, &display->sprite.h);
+	if (!display->win_screen)
+		mlx_error(*display, "Error\nCould not fetch sprite");
 }
 
 void	init_decor(t_display *display)
