@@ -6,7 +6,7 @@
 /*   By: cdomet-d <cdomet-d@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 14:02:55 by cdomet-d          #+#    #+#             */
-/*   Updated: 2024/02/09 17:51:31 by cdomet-d         ###   ########lyon.fr   */
+/*   Updated: 2024/02/12 13:56:31 by cdomet-d         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 # define ERR 2
 # define ESC 65307
 # define DESTROY -16779216
+# define WHITE	16710368
 
 typedef struct s_coor
 {
@@ -63,11 +64,8 @@ typedef struct s_display
 
 /* Utils */
 size_t	ft_matlen(char **str);
-size_t	ft_strlen_n(char *	str);
+size_t	ft_strlen_n(char *str);
 void	print_map(char **map);
-void	dis_null_init(t_display *display);
-void	count_collectibles(t_display *display);
-void	null_init_coo(t_coor *coo);
 void	clear_map(t_display *display);
 void	find_map_center(t_display *display, t_coor *center);
 
@@ -104,12 +102,8 @@ void	open_window(t_display display);
 void	init_display(t_display *display);
 void	init_decor(t_display *display);
 void	init_player(t_display *display);
-void	init_coordinate(t_display *display);
 void	load_map(t_display display);
-void	load_decor(t_display display);
-void	load_player(t_display display);
 void	load_move(t_display	display);
-void	player_anim(t_display display);
 
 /* Memory handling*/
 void	free_and_exit(char **map, int error_code);
@@ -121,8 +115,6 @@ void	free_tab(char **map);
 int		key_hook(int keycode, t_display *display);
 int		mouse_hook(int button, int x, int y, t_display *display);
 int		close_win(t_display *display);
-void	clear_player_move(t_display *display);
-void	display_player_move(t_display *display);
 
 /* Player moves */
 void	move_up(t_display	*display);
@@ -131,5 +123,25 @@ void	move_right(t_display	*display);
 void	move_left(t_display	*display);
 void	open_exit(t_display display);
 
+/* Load map utils */
+void	load_player(t_display display);
+void	load_decor(t_display display);
+void	load_background(t_display	display);
+void	load_player_and_items(t_display	display);
+void	load_exit(t_display	display);
+
+/* Text */
+void	display_win_message(t_display display);
+void	clear_player_move(t_display *display);
+void	display_player_move(t_display *display);
+
+/* Animations */
+void	open_exit(t_display display);
+void	player_anim(t_display display);
+
+/* Init utils */
+void	dis_null_init(t_display *display);
+void	null_init_coo(t_coor *coo);
+void	init_coordinate(t_display *display);
 
 #endif

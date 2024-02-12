@@ -6,7 +6,7 @@
 #    By: cdomet-d <cdomet-d@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/07 10:23:52 by cdomet-d          #+#    #+#              #
-#    Updated: 2024/02/08 13:16:48 by cdomet-d         ###   ########lyon.fr    #
+#    Updated: 2024/02/12 13:21:02 by cdomet-d         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ INCLUDES = -I/usr/include -I$(MLX_DIR)
 MLX_FLAGS = -L$(MLX_DIR) -lmlx_Linux -L/usr/lib -I$(MLX_LIB) -lX11 -lm -lz -lXext $(MLX_LIB)
 
 SRCS := window_handling.c \
-		init_display.c \
+		init_sprites.c \
 		map_handling.c \
 		parsing_utils.c \
 		parsing.c \
@@ -36,8 +36,11 @@ SRCS := window_handling.c \
 		mem_handling.c \
 		hook_functions.c \
 		init_utils.c \
-		load_map_to_window.c \
+		load_map.c \
+		load_map_utils.c \
 		player_moves.c \
+		win_screen.c \
+		text.c \
 
 OBJS := $(SRCS:%.c=$(BUILD_DIR)/%.o)
 DEPS := $(OBJS:%.o=%.d)

@@ -6,11 +6,27 @@
 /*   By: cdomet-d <cdomet-d@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 12:15:29 by cdomet-d          #+#    #+#             */
-/*   Updated: 2024/02/09 17:52:34 by cdomet-d         ###   ########lyon.fr   */
+/*   Updated: 2024/02/12 13:30:46 by cdomet-d         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+static void	count_collectibles(t_display *display)
+{
+	while (display->map[display->coo.i])
+	{
+		display->coo.j = 0;
+		while (display->map[display->coo.i][display->coo.j])
+		{
+			if (display->map[display->coo.i][display->coo.j] == 'C')
+				display->item_total++;
+			display->coo.j++;
+		}
+		display->coo.i++;
+	}
+	null_init_coo(&display->coo);
+}
 
 void	dis_null_init(t_display *display)
 {

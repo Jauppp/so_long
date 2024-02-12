@@ -6,11 +6,23 @@
 /*   By: cdomet-d <cdomet-d@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 11:29:41 by cdomet-d          #+#    #+#             */
-/*   Updated: 2024/02/09 13:57:33 by cdomet-d         ###   ########lyon.fr   */
+/*   Updated: 2024/02/12 14:50:53 by cdomet-d         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void	free_tab(char **map)
+{
+	size_t	i;
+
+	i = 0;
+	if (!map || !*map)
+		exit(EXIT_FAILURE);
+	while (map[i])
+		free(map[i++]);
+	map = NULL;
+}
 
 void	free_and_exit(char **map, int error_code)
 {
@@ -56,16 +68,4 @@ void	free_mlx(t_display display)
 	if (display.mlx_id)
 		mlx_destroy_display(display.mlx_id);
 	free(display.mlx_id);
-}
-
-void	free_tab(char **map)
-{
-	size_t	i;
-
-	i = 0;
-	if (!map || !*map)
-		exit(EXIT_FAILURE);
-	while (map[i])
-		free(map[i++]);
-	map = NULL;
 }
