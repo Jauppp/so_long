@@ -6,7 +6,7 @@
 /*   By: cdomet-d <cdomet-d@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 14:02:55 by cdomet-d          #+#    #+#             */
-/*   Updated: 2024/02/12 13:56:31 by cdomet-d         ###   ########lyon.fr   */
+/*   Updated: 2024/02/12 15:36:33 by cdomet-d         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@
 # include "../build/mlx/mlx.h"
 # include "../build/mlx/mlx_int.h"
 
-# define MAX_ROW 50
+# define MAX_ROW 15
+# define MAX_COL 25
 # define SUCCESS 1
 # define FAILURE 0
 # define ERR 2

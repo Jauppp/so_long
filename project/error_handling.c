@@ -6,7 +6,7 @@
 /*   By: cdomet-d <cdomet-d@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 15:15:28 by cdomet-d          #+#    #+#             */
-/*   Updated: 2024/02/12 13:19:58 by cdomet-d         ###   ########lyon.fr   */
+/*   Updated: 2024/02/12 15:40:10 by cdomet-d         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ void	mem_err(char **map, size_t row, int error_code)
 	if (row)
 		map[row] = 0;
 	strerror(error_code);
-	free_and_exit(map, error_code);
+	free_tab(map);
+	exit(EXIT_FAILURE);
 }
 
 void	parse_err(char **map, char **map_cpy, char *error_message)

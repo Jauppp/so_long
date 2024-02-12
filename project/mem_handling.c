@@ -6,7 +6,7 @@
 /*   By: cdomet-d <cdomet-d@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 11:29:41 by cdomet-d          #+#    #+#             */
-/*   Updated: 2024/02/12 14:50:53 by cdomet-d         ###   ########lyon.fr   */
+/*   Updated: 2024/02/12 15:43:09 by cdomet-d         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	free_tab(char **map)
 	size_t	i;
 
 	i = 0;
-	if (!map || !*map)
+	if (!map)
 		exit(EXIT_FAILURE);
 	while (map[i])
 		free(map[i++]);
@@ -35,7 +35,7 @@ void	free_and_exit(char **map, int error_code)
 
 void	free_double_tab(char **double_tab)
 {
-	if (!double_tab || !*double_tab)
+	if (!double_tab)
 		return ;
 	free_tab(double_tab);
 	free(double_tab);
