@@ -6,7 +6,7 @@
 /*   By: cdomet-d <cdomet-d@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 09:38:43 by cdomet-d          #+#    #+#             */
-/*   Updated: 2024/02/12 13:20:48 by cdomet-d         ###   ########lyon.fr   */
+/*   Updated: 2024/02/13 13:19:50 by cdomet-d         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,47 +23,47 @@ void	init_display(t_display *display)
 	if (!display->win_id)
 		mlx_error(*display, "Error\nCould not initialize window");
 	display->win_screen = mlx_xpm_file_to_image(display->mlx_id, \
-		"../sprites/win_screen.xpm", &display->sprite.w, &display->sprite.h);
+		"sprites/win_screen.xpm", &display->sprite.w, &display->sprite.h);
 	if (!display->win_screen)
-		mlx_error(*display, "Error\nCould not fetch sprite");
+		mlx_error(*display, "Error\nCould not fetch win screen");
 }
 
 void	init_decor(t_display *display)
 {
 	display->bg = mlx_xpm_file_to_image(display->mlx_id, \
-		"../sprites/bg.xpm", &display->sprite.w, &display->sprite.h);
+		"sprites/bg.xpm", &display->sprite.w, &display->sprite.h);
 	if (!display->bg)
-		mlx_error(*display, "Error\nCould not fetch sprite");
+		mlx_error(*display, "Error\nCould not fetch background");
 	display->wall = mlx_xpm_file_to_image(display->mlx_id, \
-		"../sprites/wall.xpm", &display->sprite.w, &display->sprite.h);
+		"sprites/wall.xpm", &display->sprite.w, &display->sprite.h);
 	if (!display->wall)
-		mlx_error(*display, "Error\nCould not fetch sprite");
+		mlx_error(*display, "Error\nCould not fetch wall");
 	display->item = mlx_xpm_file_to_image(display->mlx_id, \
-		"../sprites/items.xpm", &display->sprite.w, &display->sprite.h);
+		"sprites/items.xpm", &display->sprite.w, &display->sprite.h);
 	if (!display->item)
-		mlx_error(*display, "Error\nCould not fetch sprite");
+		mlx_error(*display, "Error\nCould not fetch item");
 	display->exit = mlx_xpm_file_to_image(display->mlx_id, \
-		"../sprites/exit.xpm", &display->sprite.w, &display->sprite.h);
+		"sprites/exit.xpm", &display->sprite.w, &display->sprite.h);
 	if (!display->exit)
-		mlx_error(*display, "Error\nCould not fetch sprite");
+		mlx_error(*display, "Error\nCould not fetch exit");
 	display->exit_1 = mlx_xpm_file_to_image(display->mlx_id, \
-		"../sprites/exit_02.xpm", &display->sprite.w, &display->sprite.h);
+		"sprites/exit_02.xpm", &display->sprite.w, &display->sprite.h);
 	if (!display->exit_1)
-		mlx_error(*display, "Error\nCould not fetch sprite");
+		mlx_error(*display, "Error\nCould not fetch exit");
 }
 
 void	init_player(t_display *display)
 {
 	display->player = mlx_xpm_file_to_image(display->mlx_id, \
-		"../sprites/player.xpm", &display->sprite.w, &display->sprite.h);
+		"sprites/player.xpm", &display->sprite.w, &display->sprite.h);
 	if (!display->player)
-		mlx_error(*display, "Error\nCould not fetch sprite");
+		mlx_error(*display, "Error\nCould not fetch player");
 	display->player_1 = mlx_xpm_file_to_image(display->mlx_id, \
-		"../sprites/player_01.xpm", &display->sprite.w, &display->sprite.h);
+		"sprites/player_01.xpm", &display->sprite.w, &display->sprite.h);
 	if (!display->player_1)
-		mlx_error(*display, "Error\nCould not fetch sprite");
+		mlx_error(*display, "Error\nCould not fetch player");
 	display->player_2 = mlx_xpm_file_to_image(display->mlx_id, \
-		"../sprites/player_02.xpm", &display->sprite.w, &display->sprite.h);
+		"sprites/player_02.xpm", &display->sprite.w, &display->sprite.h);
 	if (!display->player_2)
-		mlx_error(*display, "Error\nCould not fetch sprite");
+		mlx_error(*display, "Error\nCould not fetch player");
 }
