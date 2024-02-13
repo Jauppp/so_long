@@ -6,7 +6,7 @@
 /*   By: cdomet-d <cdomet-d@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 15:15:28 by cdomet-d          #+#    #+#             */
-/*   Updated: 2024/02/12 15:40:10 by cdomet-d         ###   ########lyon.fr   */
+/*   Updated: 2024/02/13 09:56:18 by cdomet-d         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void	mlx_error(t_display display, char *error_message)
 {
 	if (error_message)
 		ft_printf("%s\n", error_message);
+	free_double_tab(display.map);
 	free_mlx(display);
 	exit(EXIT_FAILURE);
 }

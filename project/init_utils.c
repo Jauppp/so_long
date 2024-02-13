@@ -6,7 +6,7 @@
 /*   By: cdomet-d <cdomet-d@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 12:15:29 by cdomet-d          #+#    #+#             */
-/*   Updated: 2024/02/12 13:30:46 by cdomet-d         ###   ########lyon.fr   */
+/*   Updated: 2024/02/13 10:19:48 by cdomet-d         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	dis_null_init(t_display *display)
 	null_init_coo(&display->coo);
 	display->item_total = 0;
 	display->item_counter = 0;
-	display->move_counter = 0;
+	display->move_counter = 1;
 	display->anim = 0;
 	display->sprite.h = 160;
 	display->sprite.w = 160;
