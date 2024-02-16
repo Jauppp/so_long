@@ -6,7 +6,7 @@
 /*   By: cdomet-d <cdomet-d@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 11:29:41 by cdomet-d          #+#    #+#             */
-/*   Updated: 2024/02/12 15:43:09 by cdomet-d         ###   ########lyon.fr   */
+/*   Updated: 2024/02/16 10:26:46 by cdomet-d         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,10 @@ void	free_tab(char **map)
 	if (!map)
 		exit(EXIT_FAILURE);
 	while (map[i])
-		free(map[i++]);
+	{
+		free(map[i]);
+		i++;
+	}
 	map = NULL;
 }
 

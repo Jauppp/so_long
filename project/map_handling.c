@@ -6,7 +6,7 @@
 /*   By: cdomet-d <cdomet-d@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 14:06:08 by cdomet-d          #+#    #+#             */
-/*   Updated: 2024/02/12 15:47:42 by cdomet-d         ###   ########lyon.fr   */
+/*   Updated: 2024/02/16 10:32:30 by cdomet-d         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,12 @@ void	init_map_stdin(char **map)
 	new_row = get_next_line(STDIN_FILENO);
 	if (errno)
 		mem_err(map, row, errno);
-	if (ft_strlen_n(new_row) >= MAX_COL)
-		parse_err(map, NULL, "Error\nMap is too wide. Max is 25 columns!");
 	while (new_row)
 	{
 		map[row] = new_row;
 		row++;
-		if (row == MAX_ROW - 1)
-			parse_err(map, NULL, "Error\nMap has too many lines. Max is 15 !");
+		if (row == MAX_ROW - 1 || ft_strlen_n(new_row) >= MAX_COL)
+			mem_err(map, row, MAP_ERR);
 		new_row = get_next_line(STDIN_FILENO);
 		if (errno)
 			mem_err(map, row, errno);
@@ -47,16 +45,14 @@ void	init_map_fd(char **map, char *arg)
 	if (errno)
 		mem_err(map, row, errno);
 	new_row = get_next_line(fd);
-	if (ft_strlen_n(new_row) >= MAX_COL)
-		parse_err(map, NULL, "Error\nMap is too wide. Max is 25 columns!");
 	if (errno)
 		mem_err(map, row, errno);
 	while (new_row)
 	{
 		map[row] = new_row;
 		row++;
-		if (row == MAX_ROW - 1)
-			parse_err(map, NULL, "Error\nMap has too many lines. Max is 15 !");
+		if (row == MAX_ROW - 1 || ft_strlen_n(new_row) >= MAX_COL)
+			mem_err(map, row, MAP_ERR);
 		new_row = get_next_line(fd);
 		if (errno)
 			mem_err(map, 0, errno);

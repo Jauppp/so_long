@@ -6,7 +6,7 @@
 /*   By: cdomet-d <cdomet-d@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 14:02:55 by cdomet-d          #+#    #+#             */
-/*   Updated: 2024/02/12 15:36:33 by cdomet-d         ###   ########lyon.fr   */
+/*   Updated: 2024/02/16 11:15:30 by cdomet-d         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 
 # define MAX_ROW 15
 # define MAX_COL 25
+# define MAP_ERR 1500
 # define SUCCESS 1
 # define FAILURE 0
 # define ERR 2
@@ -135,6 +136,7 @@ void	load_exit(t_display	display);
 void	display_win_message(t_display display);
 void	clear_player_move(t_display *display);
 void	display_player_move(t_display *display);
+void	display_move_counter(t_display *display);
 
 /* Animations */
 void	open_exit(t_display display);

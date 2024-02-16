@@ -6,7 +6,7 @@
 /*   By: cdomet-d <cdomet-d@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 12:18:08 by cdomet-d          #+#    #+#             */
-/*   Updated: 2024/02/13 10:50:22 by cdomet-d         ###   ########lyon.fr   */
+/*   Updated: 2024/02/16 11:15:12 by cdomet-d         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ void	move_up(t_display	*display)
 			display->item_counter++;
 		if (display->map[display->coo.i - 1][display->coo.j] != 'E')
 		{
-			clear_player_move(display);
-			display_player_move(display);
-			ft_printf("Total moves : %u\n", display->move_counter);
+			display_move_counter(display);
+			if (ft_printf("Total moves : %u\n", display->move_counter) == -1)
+				mlx_error(*display, "ft_printf crashed :/\n");
 			display->move_counter++;
 			display->map[display->coo.i - 1][display->coo.j] = 'P';
 			display->map[display->coo.i][display->coo.j] = '0';
@@ -35,8 +35,9 @@ void	move_up(t_display	*display)
 			open_exit(*display);
 		}
 		else
-			ft_printf("You are missing %u items to unlock the exit !\n", \
-			display->item_total - display->item_counter);
+			if (ft_printf("%u items missing to unlock the exit !\n", \
+			display->item_total - display->item_counter) == -1)
+				mlx_error(*display, "ft_printf crashed :/\n");
 	}
 }
 
@@ -48,9 +49,9 @@ void	move_down(t_display	*display)
 			display->item_counter++;
 		if (display->map[display->coo.i + 1][display->coo.j] != 'E')
 		{
-			clear_player_move(display);
-			display_player_move(display);
-			ft_printf("Total moves : %u\n", display->move_counter);
+			display_move_counter(display);
+			if (ft_printf("Total moves : %u\n", display->move_counter) == -1)
+				mlx_error(*display, "ft_printf crashed :/\n");
 			display->move_counter++;
 			display->map[display->coo.i + 1][display->coo.j] = 'P';
 			display->map[display->coo.i][display->coo.j] = '0';
@@ -63,8 +64,9 @@ void	move_down(t_display	*display)
 			open_exit(*display);
 		}
 		else
-			ft_printf("You are missing %u items to unlock the exit !\n", \
-			display->item_total - display->item_counter);
+			if (ft_printf("%u items missing to unlock the exit !\n", \
+			display->item_total - display->item_counter) == -1)
+				mlx_error(*display, "ft_printf crashed :/\n");
 	}
 }
 
@@ -76,9 +78,9 @@ void	move_right(t_display	*display)
 			display->item_counter++;
 		if (display->map[display->coo.i][display->coo.j + 1] != 'E')
 		{
-			clear_player_move(display);
-			display_player_move(display);
-			ft_printf("Total moves : %u\n", display->move_counter);
+			display_move_counter(display);
+			if (ft_printf("Total moves : %u\n", display->move_counter) == -1)
+				mlx_error(*display, "ft_printf crashed :/\n");
 			display->move_counter++;
 			display->map[display->coo.i][display->coo.j + 1] = 'P';
 			display->map[display->coo.i][display->coo.j] = '0';
@@ -91,8 +93,9 @@ void	move_right(t_display	*display)
 			open_exit(*display);
 		}
 		else
-			ft_printf("You are missing %u items to unlock the exit !\n", \
-			display->item_total - display->item_counter);
+			if (ft_printf("%u items missing to unlock the exit !\n", \
+			display->item_total - display->item_counter) == -1)
+				mlx_error(*display, "ft_printf crashed :/\n");
 	}
 }
 
@@ -104,9 +107,9 @@ void	move_left(t_display	*display)
 			display->item_counter++;
 		if (display->map[display->coo.i][display->coo.j - 1] != 'E')
 		{
-			clear_player_move(display);
-			display_player_move(display);
-			ft_printf("Total moves : %u\n", display->move_counter);
+			display_move_counter(display);
+			if (ft_printf("Total moves : %u\n", display->move_counter) == -1)
+				mlx_error(*display, "ft_printf crashed :/\n");
 			display->move_counter++;
 			display->map[display->coo.i][display->coo.j - 1] = 'P';
 			display->map[display->coo.i][display->coo.j] = '0';
@@ -119,7 +122,8 @@ void	move_left(t_display	*display)
 			open_exit(*display);
 		}
 		else
-			ft_printf("You are missing %u items to unlock the exit !\n", \
-			display->item_total - display->item_counter);
+			if (ft_printf("%u items missing to unlock the exit !\n", \
+			display->item_total - display->item_counter) == -1)
+				mlx_error(*display, "ft_printf crashed :/\n");
 	}
 }

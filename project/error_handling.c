@@ -6,7 +6,7 @@
 /*   By: cdomet-d <cdomet-d@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 15:15:28 by cdomet-d          #+#    #+#             */
-/*   Updated: 2024/02/13 09:56:18 by cdomet-d         ###   ########lyon.fr   */
+/*   Updated: 2024/02/16 10:58:33 by cdomet-d         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,10 @@ void	mem_err(char **map, size_t row, int error_code)
 {
 	if (row)
 		map[row] = 0;
-	strerror(error_code);
+	if (error_code == MAP_ERR)
+		ft_printf("Error\nMap is too large. Max : 15 * 25\n");
+	else
+		strerror(error_code);
 	free_tab(map);
 	exit(EXIT_FAILURE);
 }
