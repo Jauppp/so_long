@@ -20,10 +20,6 @@
 - [ Getting Started](#-getting-started)
   - [ Installation](#-installation)
   - [ Usage](#-usage)
-  - [ Tests](#-tests)
-- [ Project Roadmap](#-project-roadmap)
-- [ Contributing](#-contributing)
-- [ License](#-license)
 - [ Acknowledgments](#-acknowledgments)
 </details>
 <hr>
@@ -151,9 +147,6 @@ SO_LONG, is a 2D grid-based adventure game written in C and leveraging the LFT a
 
 ###  Installation
 
-<h4>From <code>source</code></h4>
-
-
 > ```console
 > $ git clone https://github.com/Jauppp/so_long/ so_long
 > $ cd so_long
@@ -161,14 +154,15 @@ SO_LONG, is a 2D grid-based adventure game written in C and leveraging the LFT a
 
 ###  Usage
 
-<h4>From <code>source</code></h4>
-
 > Run  using the command below:
 > ```console
 > $ ./so_long maps/[your-map-choice].ber
 > $ # if you run ./so_long by itself, it will open STDIN and wait for your input
 > ```
 <br>
+
+##  Contributors
+
 <p align="center">
    <a href="https://github.com{/Jauppp/so_long/}graphs/contributors">
       <img src="https://contrib.rocks/image?repo=Jauppp/so_long">
@@ -186,3 +180,4 @@ SO_LONG, is a 2D grid-based adventure game written in C and leveraging the LFT a
 [**Return**](#-overview)
 
 ---
+
