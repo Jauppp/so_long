@@ -161,18 +161,7 @@ SO_LONG, is a 2D grid-based adventure game written in C and leveraging the LFT a
 > ```
 <br>
 
-##  Contributors
-
-<p align="center">
-   <a href="https://github.com{/Jauppp/so_long/}graphs/contributors">
-      <img src="https://contrib.rocks/image?repo=Jauppp/so_long">
-   </a>
-</p>
-</details>
-
----
-
-##  Acknowledgments
+##  Ressources
 
 - <a href="https://reactive.so/post/42-a-comprehensive-guide-to-so_long"> MLX documentation 
 - <a href="https://harm-smits.github.io/42docs/libs/minilibx"> More MLX documentation </a>
